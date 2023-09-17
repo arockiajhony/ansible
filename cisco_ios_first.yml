@@ -1,0 +1,21 @@
+---
+  - name: show hostname
+    hosts: all
+    gather_facts: no
+    connection: local
+
+    vars:
+      cli:
+        username: jhony
+        password: jhony
+    tasks:
+        - name: firstconfig
+          ios_command:   
+            provider: "{{ cli }}"         
+            commands: 
+              - show version | i uptime
+              - show run | i hostname
+          register: output          
+        - name: print output
+          debug: 
+            var: output.stdout_lines          
