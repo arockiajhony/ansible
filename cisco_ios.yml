@@ -5,7 +5,7 @@
     connection: local
 
     vars:
-      cli:
+      crdentials:
         username: jhony
         password: jhony
         timeout: 100
@@ -14,7 +14,7 @@
 
         - name: show-outputs ### Task Show Output ####
           ios_command:   
-            provider: "{{ cli }}"         
+            provider: "{{ crdentials }}"         
             commands: 
               - show run | s line vty
               - show run | i hostname
@@ -25,7 +25,7 @@
 
         - name: Load new acl into device   ### ACL Push ###
           ios_config:
-            provider: "{{ cli }}"
+            provider: "{{ crdentials }}"
             lines:
               - 10 permit ip host 192.0.2.1 any log
               - 20 permit ip host 192.0.2.2 any log
@@ -38,11 +38,19 @@
 
         # - name: Check the startup-config against the running-config
         #   ios_config:
-        #     provider: "{{ cli }}"
+        #     provider: "{{ crdentials }}"
         #     diff_against: startup
         #     # diff_ignore_lines:
         #     #   - ntp clock .*  
         - name: Save running to startup when modified
           ios_config:
-            provider: "{{ cli }}"
+            provider: "{{ crdentials }}"
             save_when: modified    
+        - name: configurable backup path
+          ios_config:
+            #src: ios_template.j2
+            provider: "{{ crdentials }}"
+            backup: yes
+            backup_options:
+              filename: backup.cfg
+              dir_path: /home/jhony
