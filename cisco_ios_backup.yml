@@ -30,5 +30,5 @@
             #provider: "{{ crdentials }}"
             backup: yes
             backup_options:
-              filename: {{ inventory_hostname }}_backup.cfg
+              filename: "{{ inventory_hostname }}"_backup.cfg
               dir_path: /home/
