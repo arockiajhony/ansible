@@ -30,5 +30,6 @@
             #provider: "{{ crdentials }}"
             backup: yes
             backup_options:
-              filename: "{{ inventory_hostname }}"_backup.cfg
+              #filename: "{{ inventory_hostname }}"_backup.cfg
+              filename: cisco_ios_test_backup.cfg
               dir_path: /home/
