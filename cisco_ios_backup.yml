@@ -6,9 +6,9 @@
 
     tasks:
         
-       - name: Configure top level configuration
-         cisco.ios.ios_config:
-          lines: hostname {{ inventory_hostname }}
+        - name: Configure top level configuration
+          cisco.ios.ios_config:
+           lines: hostname {{ inventory_hostname }}
 
         - name: show-outputs ### Task Show Output ####
           ios_command:   
