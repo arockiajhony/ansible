@@ -5,7 +5,8 @@
     connection: network_cli
 
     tasks:
-      - name: Configure top level configuration
+        
+       - name: Configure top level configuration
         cisco.ios.ios_config:
           lines: hostname {{ inventory_hostname }}
 
