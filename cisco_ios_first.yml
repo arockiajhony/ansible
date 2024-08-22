@@ -20,7 +20,7 @@
           debug: 
             var: output.stdout_lines          
         - name: Create backup dir
-          file:
+          ansible.builtin.file:
             path: "/ITNC_backup/{{ inventory_hostname }}"
             state: directory
             recurse: yes     
