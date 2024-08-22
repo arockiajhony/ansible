@@ -31,5 +31,5 @@
             backup: yes
             backup_options:
               #filename: "{{ inventory_hostname }}"_backup.cfg
-              filename: cisco_ios_test_backup.cfg
+              filename: cisco_ios_test_backup_test.cfg
               dir_path: /ITNC_backup/
