@@ -19,3 +19,8 @@
         - name: print output
           debug: 
             var: output.stdout_lines          
+        - name: Create backup dir
+          file:
+            path: "/ITNC_backup/{{ inventory_hostname }}"
+            state: directory
+            recurse: yes     
