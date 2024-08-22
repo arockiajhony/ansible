@@ -2,16 +2,16 @@
   - name: show hostname
     hosts: iosswitch
     gather_facts: no
-    connection: local
+    connection: network_cli
 
-    vars:
-      cli:
-        username: jhony
-        password: jhony
+    #vars:
+     # cli:
+      #  username: jhony
+       # password: jhony
     tasks:
         - name: firstconfig
           ios_command:   
-            provider: "{{ cli }}"         
+            #provider: "{{ cli }}"         
             commands: 
               - show version | i uptime
               - show run | i hostname
