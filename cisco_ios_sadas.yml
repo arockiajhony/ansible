@@ -1,0 +1,16 @@
+---
+  - name: show hostname
+    hosts: iosswitch
+    gather_facts: no
+    connection: local
+
+    #vars:
+     # cli:
+      #  username: jhony
+       # password: jhony
+    tasks:  
+        - name: Create backup dir
+          ansible.builtin.file:
+            path: "/ITNC_backup/{{ inventory_hostname }}"
+            state: directory
+            recurse: yes     
