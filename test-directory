@@ -1,4 +1,0 @@
-- name: Creates directory
-  ansible.builtin.file:
-    path: /ITNC_backup/test-1
-    state: directory
