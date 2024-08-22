@@ -2,23 +2,13 @@
   - name: show hostname
     hosts: iosswitch
     gather_facts: no
-    connection: network_cli
+    connection: local
 
     #vars:
      # cli:
       #  username: jhony
        # password: jhony
-    tasks:
-        - name: firstconfig
-          ios_command:   
-            #provider: "{{ cli }}"         
-            commands: 
-              - show version | i uptime
-              - show run | i hostname
-          register: output          
-        - name: print output
-          debug: 
-            var: output.stdout_lines          
+    tasks:  
         - name: Create backup dir
           ansible.builtin.file:
             path: "/ITNC_backup/{{ inventory_hostname }}"
