@@ -1,6 +1,6 @@
 ---
   - name: show hostname
-    hosts: all
+    hosts: iosswitch
     gather_facts: no
     connection: local
 
