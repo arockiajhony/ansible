@@ -32,4 +32,4 @@
             backup_options:
               #filename: "{{ inventory_hostname }}"_backup.cfg
               filename: cisco_ios_test_backup.cfg
-              dir_path: /home/
+              dir_path: /var/lib/awx/projects/_37__vlan_creation_1248_pm
