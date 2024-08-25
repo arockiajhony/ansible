@@ -5,10 +5,6 @@
     connection: network_cli
 
     tasks:
-
-        #- name: Configure top level configuration
-          #cisco.ios.ios_config:
-           #lines: hostname {{ inventory_hostname }}
         - name: show-outputs ### Task Show Output ####
           ios_command:
             #provider: "{{ crdentials }}"
@@ -18,26 +14,13 @@
         - name: print output
           debug:
             var: output.stdout_lines
-        # - name: Save running to startup when modified
-          # ios_config:
-            # #provider: "{{ crdentials }}"
-            # save_when: modified	
-        # - name: configurable backup path
-          # ios_config:
-            # #src: ios_template.j2
-            # #provider: "{{ crdentials }}"
-            # backup: yes
-            # backup_options:
-              # #filename: "{{ inventory_hostname }}"_backup.cfg
-              # filename: cisco_ios_test_backup_test.cfg
-              # dir_path: /ITNC_backup/		
         - name: Create backup dir
           ansible.builtin.file:
             path: /etc/backuptoweraug25
             state: directory
             mode: '0755' 
-	- name: Creates directory
- 	  ansible.builtin.file:
-   	    path: /ITNC_backup/test-2
+        - name: Creates directory
+          ansible.builtin.file:
+            path: /ITNC_backup/test-2
             state: directory
             mode: '0755'
