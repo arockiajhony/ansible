@@ -16,7 +16,7 @@
             var: output.stdout_lines
         - name: Creates directory
           cisco.ios.ios_config:
-              src: ios_template.j2
+              #src: ios_template.j2
               backup: true
               backup_options:
               filename: backup_test_file_aug25.cfg
