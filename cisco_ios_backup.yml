@@ -15,6 +15,9 @@
           debug:
             var: output.stdout_lines
         - name: Creates directory
-          ansible.builtin.file:
-            path: /ITNC_backup/test-2
-            state: directory
+          cisco.ios.ios_config:
+              src: ios_template.j2
+              backup: true
+              backup_options:
+              filename: backup_test_file_aug25.cfg
+              dir_path: /ITNC_backup/
