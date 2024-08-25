@@ -1,5 +1,11 @@
 ---
 - name: Creates directory
   ansible.builtin.file:
-    path: /ITNC_backup/test-1
+    path: /ITNC_backup/test-2
     state: directory
+    mode: '0755'
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: /etc/backuptoweraug25
+    state: directory
+    mode: '0755'
